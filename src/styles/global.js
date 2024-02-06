@@ -1,6 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+
+  html{
+    // isso torna a utilização da unidade de medida rem mais fácil
+    // ex: 30px = 3rem; 32px = 3.2rem
+    font-size: 62.5%;
+  }
+
   *{
     margin: 0;
     padding: 0;
@@ -10,6 +17,7 @@ export default createGlobalStyle`
   body{
     width: 100%;
     min-height: 100vh;
+    background-color: ${({ theme }) => theme.colors.lightCyan};
   }
 
   body,input,button{
@@ -21,5 +29,9 @@ export default createGlobalStyle`
     outline: none;
     cursor: pointer;
     transition: all .3s ease;
+  }
+
+  .App{
+    width: 100%;
   }
 `;
