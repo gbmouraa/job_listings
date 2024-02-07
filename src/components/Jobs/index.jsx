@@ -15,7 +15,7 @@ import {
   Position,
   Languages,
   DescriptionArea,
-} from "./Main.style";
+} from "./Jobs.style";
 
 function Main() {
   const { filteredJobs, showFilters, categories, setCategories } =
