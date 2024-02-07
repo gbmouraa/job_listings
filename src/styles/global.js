@@ -29,7 +29,7 @@ export default createGlobalStyle`
     border: none;
     outline: none;
     cursor: pointer;
-    transition: all .3s ease;
+    transition: all .7s ease;
   }
 
   .App{
