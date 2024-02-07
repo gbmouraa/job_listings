@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const JobsWrapper = styled.ul`
   display: flex;
@@ -10,19 +11,19 @@ export const JobsWrapper = styled.ul`
   padding: 0 2rem 6rem 2rem;
 `;
 
-export const Job = styled.li`
+export const Job = styled(motion.li)`
   position: relative;
   width: 100%;
   max-width: 106rem;
   list-style-type: none;
   display: flex;
-  background-color: ${({ theme }) => theme.colors.lighterCyan};
+  background-color: #fff;
   padding: 4rem 2rem 2rem 2rem;
   border-radius: 0.5rem;
   box-shadow: 0px 6px 18px #cae0e0;
 
   @media screen and (min-width: 1040px) {
-    padding: 4rem;
+    padding: 3rem;
   }
 `;
 
@@ -66,7 +67,6 @@ export const Description = styled.div`
 export const HeadDescription = styled.div`
   display: flex;
   align-items: center;
-  max-width: 10rem;
   span:first-child {
     font-weight: 700;
     color: ${({ theme }) => theme.colors.primary};
@@ -124,6 +124,7 @@ export const Details = styled.ul`
 export const Position = styled.span`
   font-weight: 700;
   font-size: 1.8rem;
+  transition: all 0.7s ease;
 
   &:hover {
     cursor: pointer;
@@ -145,6 +146,7 @@ export const Languages = styled.div`
     display: block;
     line-height: 0.9;
     height: fit-content;
+    transition: all 0.7s ease;
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.primary};

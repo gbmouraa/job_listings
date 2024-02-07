@@ -13,20 +13,27 @@ import {
   Languages,
   DescriptionArea,
 } from "./Main.style";
+
 import data from "../../assets/data.json";
 
 function Main() {
   return (
     <JobsWrapper>
       {data.map((item) => (
-        <Job key={item.id}>
+        <Job
+          key={item.id}
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
           {item.featured && <Featured />}
 
           <Content>
             <DescriptionArea>
               <Logo src={item.logo} alt={item.company} />
               <Description>
-                <HeadDescription className="teste">
+                <HeadDescription>
                   <span>{item.company}</span>
                   {item.new && <Badge backgroundcolor="primary">NEW!</Badge>}
                   {item.featured && (
