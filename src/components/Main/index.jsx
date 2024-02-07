@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { StaticJobsContext } from "../../context/StaticJobs";
+import FilterSection from "../FilterSection";
 import {
   JobsWrapper,
   Job,
@@ -14,17 +17,25 @@ import {
   DescriptionArea,
 } from "./Main.style";
 
-import data from "../../assets/data.json";
-
 function Main() {
+  const { filteredJobs, showFilters, categories, setCategories } =
+    useContext(StaticJobsContext);
+
+  function handleFIlter(e) {
+    const category = e.target.textContent;
+    !categories.includes(category) && setCategories([...categories, category]);
+  }
+
   return (
     <JobsWrapper>
-      {data.map((item) => (
+      {showFilters && <FilterSection />}
+
+      {filteredJobs.map((item) => (
         <Job
           key={item.id}
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
         >
           {item.featured && <Featured />}
@@ -52,13 +63,19 @@ function Main() {
             <Divider />
 
             <Languages>
-              <span>{item.role}</span>
-              <span>{item.level}</span>
+              <span onClick={(e) => handleFIlter(e)}>{item.role}</span>
+              <span onClick={(e) => handleFIlter(e)}>{item.level}</span>
               {item.languages.map((language) => (
-                <span key={language}>{language}</span>
+                <span key={language} onClick={(e) => handleFIlter(e)}>
+                  {language}
+                </span>
               ))}
               {item.tools &&
-                item.tools.map((tool) => <span key={tool}>{tool}</span>)}
+                item.tools.map((tool) => (
+                  <span key={tool} onClick={(e) => handleFIlter(e)}>
+                    {tool}
+                  </span>
+                ))}
             </Languages>
           </Content>
         </Job>
