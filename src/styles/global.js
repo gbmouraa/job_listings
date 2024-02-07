@@ -12,12 +12,14 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all .5s ease;
   }
 
   body{
     width: 100%;
     min-height: 100vh;
     background-color: ${({ theme }) => theme.colors.lightCyan};
+    font-size: 1.6rem;
   }
 
   body,input,button{
