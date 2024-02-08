@@ -8,7 +8,7 @@ Os usuários devem ser capazes de:
 
 - Filtrar as ofertas de emprego com base nas categorias
 - Ver o layout ideal de acordo com o tamanho da tela do seu dispositivo
-- Ver os estados de hover de todos os elementos interactivos da página
+- Ver os estados de hover de todos os elementos interativos da página
 
 ### Screenshot :camera:
 
